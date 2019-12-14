@@ -3,16 +3,27 @@
     "version": "0.1.0000",
     "description": "Updates Discord rich presence to show what you're playing.",
     "manifest_version": 2,
-    "permissions": ["tabs"],
+    "permissions": [
+        "tabs"
+    ],
     "background": {
-        "scripts": ["background.js"],
+        "scripts": [
+            "background.js"
+        ],
         "persistent": false
     },
-    "web_accessible_resources": [
-        "games.json"
+    "content_scripts": [
+        {
+            "js": [
+                "main.js"
+            ],
+            "matches": [
+                "https://stadia.google.com/*"
+            ]
+        }
     ],
     "browser_action": {
         "default_icon": "icon.png",
         "default_popup": "popup.html"
-       }
+    }
 }
