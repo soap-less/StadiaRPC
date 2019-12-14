@@ -1,0 +1,271 @@
+{
+  "Assassin's Creed Odyssey": {
+    "aliases": [
+      "assassinscreedodyssey",
+      "aco",
+      "ac:o",
+      "assassin'screedodyssey",
+      "assassinscreed"
+    ],
+    "play": "https://stadia.google.com/player/8b7e7f7036e5483eaa8745d46248536crcp1",
+    "store": "https://stadia.google.com/store/details/8b7e7f7036e5483eaa8745d46248536crcp1/sku/6760aad6e75b4edc9686c48e8dd38936",
+    "img": "https://static-dm.akamaized.net/stella/prod/img/ac_logo-desktop_ncsa.png"
+  },
+  "Attack on Titan: Final Battle 2": {
+    "aliases": [
+      "attackontitanfinalbattle2",
+      "attackontitan",
+      "aot",
+      "attackontitan:finalbattle2",
+      "attackontitanfinalbattle"
+    ],
+    "play": "missing",
+    "store": "https://stadia.google.com/store/details/a38d988fb142400c947bf0a7b37fd404rcp1/sku/f879d932d28c4104958c7976f201ba38",
+    "img": "https://www.koeitecmoamerica.com/attackontitan2/finalbattle/img/top/topinfo-logo.png"
+  },
+  "Darksiders Genesis": {
+    "aliases": [
+      "darksiders",
+      "darksidersgenesis",
+      "dg",
+      "genesis",
+      "dsg"
+    ],
+    "play": "missing",
+    "store": "https://stadia.google.com/store/details/f39390395ed5444d8e9b23460c8f9152rcp1/sku/6c8ae46efebc4bd1a7de725bc630ce65",
+    "img": "https://darksiders.com/wp-content/themes/darksiders3/img/logos/dsg-logo.png",
+  },
+  "Destiny 2: The Collection": {
+    "aliases": [
+      "destiny2",
+      "destiny",
+      "d2",
+      "destiny2:thecollection",
+      "destiny2thecollection",
+      "d2:tc",
+      "thecollection"
+    ],
+    "play": "https://stadia.google.com/player/20e792017ab34ad89b70dc17a5c72d68rcp1",
+    "store": "https://stadia.google.com/store/details/1/sku/4950959380034dcda0aecf98f675e11f",
+    "img": "https://i.imgur.com/BOrybrw.png",
+    "gameTypes": [
+      "raid",
+      "crucible",
+      "strike",
+      "gambit",
+      "story"
+    ]
+  },
+  "Farming Simulator 2019": {
+    "aliases": [
+      "farmingsimulator2019",
+      "farmingsimulator",
+      "farmingsim",
+      "fs",
+      "fs2019",
+      "farmsim",
+      "farmsim2019"
+    ],
+    "play": "https://stadia.google.com/player/ebf235012b054269af70eee901bc85cfrcp1",
+    "store": "https://stadia.google.com/store/details/1/sku/c50094b71d054fc28f3116245d9dbc9a",
+    "img": "https://data2.origin.com/asset/content/dam/originx/web/app/games/farming-simulator/farming-simulator-19/gdp/fs19_gdp-logo_800%C3%97400.png/29a2b299-36cd-4bcb-9d04-27bdeaadc205/original.png"
+  },
+  "Final Fantasy XV": {
+    "aliases": [
+      "finalfantasyxv",
+      "ff15",
+      "ffxv",
+      "finalfantasy",
+      "finalfantasy15",
+      "ff"
+    ],
+    "play": "https://stadia.google.com/player/a447622dbe084c3e9ace4f913a939afarcp1",
+    "store": "https://stadia.google.com/store/details/1/sku/1611bf48ac784869bcbd1ce85bc71add",
+    "img": "https://cdn.gearnuke.com/wp-content/uploads/2016/07/final-fantasy-xv-1-2-768x432.png"
+  },
+  "Football Manager 2020": {
+    "aliases": [
+      "footballmanager2020",
+      "fbm",
+      "footballmanager"
+    ],
+    "play": "https://stadia.google.com/player/8a3cc52ad2334b1e91ded77bc43644e0rcp1",
+    "store": "https://stadia.google.com/store/details/1/sku/32a0791a88474f08ad7a687846b786f2",
+    "img": "https://i.imgur.com/jKzdsXz.png",
+    "gameTypes": []
+  },
+  "Grid": {
+    "aliases": [
+      "grid",
+      "grid2019"
+    ],
+    "play": "https://stadia.google.com/player/ca805d3d37404654a91d2ea62fad7bd4rcp1",
+    "store": "https://stadia.google.com/store/details/1/sku/75be643ff0fb40d7873fa41edb10d98a",
+    "img": "https://i.imgur.com/X6uoXs1.png",
+    "gameTypes": []
+  },
+  "Gylt": {
+    "aliases": [
+      "gylt"
+    ],
+    "play": "https://stadia.google.com/player/18a3cc2bb111419c8ac873086d04dfaarcp1",
+    "store": "missing",
+    "img": "https://i.imgur.com/VAqRO9C.png"
+  },
+  "Just Dance 2020": {
+    "aliases": [
+      "justdance2020",
+      "justdance",
+      "hotgarbage",
+      "jd",
+      "jd2020"
+    ],
+    "play": "missing",
+    "store": "missing",
+    "img": "https://www.nintendo.com/content/dam/noa/en_US/games/switch/j/just-dance-2020-switch/Switch_JD2020_description-char.png"
+  },
+  "Kine": {
+    "aliases": [
+      "kine"
+    ],
+    "play": "https://stadia.google.com/player/da94f3aa88b24eb6ae6fdff798f73355rcp1",
+    "store": "missing",
+    "img": "https://i.imgur.com/7R0fple.png"
+  },
+  "Metro Exodus": {
+    "aliases": [
+      "metroexodus",
+      "metro",
+      "me",
+      "exodus"
+    ],
+    "play": "https://stadia.google.com/player/879d82512f5441829250ead1aa678a70rcp1",
+    "store": "https://stadia.google.com/store/details/1/sku/8ca5e97f091e4f7fbfcf8069ba850b1f",
+    "img": "https://i.imgur.com/zs1i0wA.png"
+  },
+  "Mortal Kombat 11": {
+    "aliases": [
+      "mortalkombat11",
+      "mk",
+      "mk11",
+      "mortalkombat",
+      "mortalcombat"
+    ],
+    "play": "https://stadia.google.com/player/7bfbcba307114ab88ae4231da2ec85d3rcp1",
+    "store": "missing",
+    "img": "https://i.imgur.com/DkZPjI9.png",
+    "gameTypes": []
+  },
+  "NBA 2k20": {
+    "aliases": [
+      "nba2k20",
+      "nba",
+      "2k20"
+    ],
+    "play": "https://stadia.google.com/player/d7c1e100082e4d77a04e1b633a458e44",
+    "store": "https://stadia.google.com/store/details/1/sku/b6d1b295ed0d4f1080576ac5d51df6d0",
+    "img": "https://i.imgur.com/ffFOAiW.png",
+    "gameTypes": []
+  },
+  "Rage 2": {
+    "aliases": [
+      "rage2",
+      "rage",
+      "r2"
+    ],
+    "play": "missing",
+    "store": "missing",
+    "img": "https://i.imgur.com/cX7pIpD.png"
+  },
+  "Rise of the Tomb Raider": {
+    "aliases": [
+      "riseofthetombraider",
+      "rottr",
+      "rtr",
+      "rise"
+    ],
+    "play": "missing",
+    "store": "missing",
+    "img": "https://i.imgur.com/MixCvGq.png"
+  },
+  "Red Dead Redemption 2": {
+    "aliases": [
+      "reddeadredemption2",
+      "rdr2",
+      "reddead",
+      "rdr"
+    ],
+    "play": "https://stadia.google.com/player/2152a1e96d5b47b18a5df7ca9bb0751frcp1",
+    "store": "https://stadia.google.com/store/details/1/sku/f790e37b6161477188923408085528a1",
+    "img": "https://upload.wikimedia.org/wikipedia/commons/2/22/Red_Dead_Redemption_2_Logo.png"
+  },
+  "Samurai Shodown": {
+    "aliases": [
+      "samuraishodown",
+      "ss",
+      "whoplaysthisthing",
+      "samuraishowdown"
+    ],
+    "play": "https://stadia.google.com/player/120348c2707740b99b509fad49a2f45drcp1",
+    "store": "https://stadia.google.com/store/details/1/sku/888a817c35b5439bb6a03a78ab09e138",
+    "img": "https://i.imgur.com/6saYP5a.png",
+    "gameTypes": []
+  },
+  "Shadow of the Tomb Raider": {
+    "aliases": [
+      "shadowofthetombraider",
+      "sottr",
+      "str",
+      "shadow"
+    ],
+    "play": "missing",
+    "store": "missing",
+    "img": "https://upload.wikimedia.org/wikipedia/commons/3/32/Shadow_of_the_Tomb_Raider.png"
+  },
+  "Thumper": {
+    "aliases": [
+      "thumper",
+      "thump"
+    ],
+    "play": "https://stadia.google.com/player/c121d8b3fa744b52b71bf3599cb3da7frcp1",
+    "store": "https://stadia.google.com/store/details/1/sku/6e98f34bbcae444a99816b8f2613452b",
+    "img": "https://images.squarespace-cdn.com/content/v1/54afb782e4b0961c049713ff/1457469078419-7N18WTTONDYA9Q1HT0JH/ke17ZwdGBToddI8pDm48kGB_lQOjaMDAu5gWXHxt9bEUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYwL8IeDg6_3B-BRuF4nNrNcQkVuAT7tdErd0wQFEGFSnMerqlGcj59a2zrnaMkWHKuwem0xF-yCBAMme-gLHGk1A9LGTF1VaJ5rrzGp-e14Mw/Thumper_logo_alpha_presskit.png?format=2500w"
+  },
+  "Tomb Raider: Definitive Edition": {
+    "aliases": [
+      "tombraider",
+      "tombraider2013",
+      "tombraiderdefinitiveedition",
+      "tombraider:definitiveedition"
+    ],
+    "play": "https://stadia.google.com/player/42503ac2cfcf40018c15c86b86a5508drcp1",
+    "store": "https://stadia.google.com/store/details/1/sku/c86bd12f279741a8b8c9c522845c7fa9",
+    "img": "https://i.imgur.com/AWeCwU8.png"
+  },
+  "Trials Rising": {
+    "aliases": [
+      "trialsrising",
+      "trials",
+      "tr",
+      "tombraiderdefinitiveedition",
+      "tombraider:definitiveedition"
+    ],
+    "play": "https://stadia.google.com/player/a031419410cc48469ff8954ea0732640rcp1",
+    "store": "https://stadia.google.com/store/details/1/sku/01e95e73256c465fb5620fc574446413",
+    "img": "https://i.imgur.com/ICnwKkt.png"
+  },
+  "Wolfenstein: Youngblood": {
+    "aliases": [
+      "wolfensteinyoungblood",
+      "wolfenstein:youngblood",
+      "wolfenstein",
+      "wy",
+      "w:yb",
+      "wyb"
+    ],
+    "play": "https://stadia.google.com/player/4884bd9bd7864cf28deef05ef4b69e70rcp1",
+    "store": "https://stadia.google.com/store/details/1/sku/31047b9e82bb4a30ba66b24bef71cdf2",
+    "img": "https://i.imgur.com/pXCqih9.png",
+    "gameTypes": []
+  }
+}

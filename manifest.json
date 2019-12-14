@@ -1,0 +1,18 @@
+{
+    "name": "StadiaRPC",
+    "version": "0.1.0000",
+    "description": "Updates Discord rich presence to show what you're playing.",
+    "manifest_version": 2,
+    "permissions": ["tabs"],
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+    },
+    "web_accessible_resources": [
+        "games.json"
+    ],
+    "browser_action": {
+        "default_icon": "icon.png",
+        "default_popup": "popup.html"
+       }
+}
