@@ -26,7 +26,6 @@ let smallImg = "online";
 let time = Date.now();
 let detailDisplay = "Playing an Unknown Game";
 let prevDetailDisplay = "Playing an Unknown Game";
-let prevStateDisplay = ""
 
 //Return presence   
 function getPresence() {
@@ -44,7 +43,8 @@ function getPresence() {
         Object.keys(games).forEach(gameName => {
             let game = games[gameName];
             if (game["store"] === tabURL) {
-                stateDisplay = "Checking out " + gameName;
+                largeImgTxt = "Browsing the Store";
+                detailDisplay = "Looking at " + gameName
             }
         });
 
@@ -59,35 +59,24 @@ function getPresence() {
                     largeImg = game["aliases"][0];
                     smallImg = "stadialogosquare";
                 }
-                //Way too much work for seperating names onto different lines, may have to optimize later
-                if (gameName.includes(":") && gameName.length + 8 > 25) {
-                    for (i = 0; i < gameName.length; i++) {
-                        if (gameName[i] == ":") {
-                            detailDisplay = "Playing " + gameName.slice(0, i + 1);
-                            stateDisplay = gameName.slice(i + 2);
-                        }
-                    }
-                } else if (gameName.length + 8 > 25 && gameName.length <= 25) {
-                    detailDisplay = "Playing";
-                    stateDisplay = gameName;
-                } else if (gameName.length + 8 > 25) {
-                    for (i = gameName.length - 1; i >= 0; i--) {
-                        if (gameName[i] == " " && gameName.slice(0, i).length + 8 < 25) {
-                            detailDisplay = "Playing" + gameName.slice(0, i);
-                            stateDisplay = gameName.slice(i + 1);
-                        }
-                    }
-                }
             }
         });
-    } 
-
+    }    
     //Check to see if presence has changed, resets time if so
-    if (prevDetailDisplay !== detailDisplay || prevStateDisplay !== stateDisplay) {
+    if (prevDetailDisplay !== detailDisplay) {
         time = Date.now();
     }
     prevDetailDisplay = detailDisplay;
-    prevStateDisplay = stateDisplay;
+
+    if (detailDisplay.length > 25) {
+        for (i = detailDisplay.length - 1; i >= 0; i--) {
+            if ((detailDisplay[i] === " " || detailDisplay[i] === ":") && detailDisplay.slice(0, i + 1).length < 25) {
+                stateDisplay = detailDisplay.slice(i + 1);
+                detailDisplay = detailDisplay.slice(0, i + 1);
+                break;
+            }
+        }
+    }
 
     return {
         clientId: '648430151390199818',
