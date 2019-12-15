@@ -1,1 +1,1 @@
-There's nothing here to read. :)
+![GitHub Logo](/assets/fullicon.png)
