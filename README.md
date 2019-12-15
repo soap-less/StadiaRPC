@@ -1,1 +1,1 @@
-![GitHub Logo](/assets/fullicon.png)
+![StadiaRPC](assets/fullicon.png)
