@@ -22,10 +22,12 @@ let largeImgTxt = "";
 let smallImgTxt = "Online";
 let largeImg = "stadialogosquare";
 let smallImg = "online";
+let time = Date.now();
+let prevStateDisplay = "Unknown Game";
+
 // Return Presence   
 function getPresence() {
     tabURL = location.href;
-    let time = Date.now();
 
     largeImgTxt = "";
     smallImgTxt = "Online";
@@ -55,6 +57,12 @@ function getPresence() {
             }
         });
     } 
+
+    //Check to see if presence has changed
+    if (prevStateDisplay !== stateDisplay) {
+        time = Date.now();
+    }
+    prevStateDisplay = stateDisplay;
 
     return {
         clientId: '648430151390199818',
