@@ -1,24 +1,73 @@
 body {
     background-color: #202124;
-    height: 300px;
-    width: 200px;
+    width: 225px;
+    height: 400px;
 }
 
-img {
+.center {
     display:block;
-    align-self: center;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 50px;
-    margin-bottom: 165px;
 }
 
-a {
+#header {
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    align-self: center;
+    margin-top: 20px;
+    margin-bottom: 120px;
+}
+
+#reportLink {
     display:block;
     font-family: 'Open Sans', sans-serif;
     text-decoration: none;
-    size: 12pt;
+    font-size: 11pt;
     color: white;
-    margin: 30px;
+    margin: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     text-align: center;
+}
+
+#reportLink:hover {
+    text-decoration: underline;
+}
+
+#contribute:hover {
+    opacity: .8;
+}
+
+
+/*I know absolute positioning sucks but I'm too lazy to deal with inline blocks right now */
+#signature {
+    color: #404654;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 10px;
+    vertical-align: bottom;
+    position: absolute;
+    right: 5px;
+    bottom: -5px;
+}
+
+#githubLogo {
+    position: absolute;
+    left: 5px;
+    bottom: 5px;
+    vertical-align: middle;
+}
+
+#githubLogo:hover {
+    opacity: 0.8;
+}
+
+#discordLogo {
+    position: absolute;
+    left: 28px;
+    bottom: 5px;
+}
+
+#discordLogo:hover {
+    opacity: 0.8;
 }

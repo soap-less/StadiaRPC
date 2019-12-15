@@ -1,1 +1,1 @@
-There's nothing here to read. :)
+![StadiaRPC Logo](/assets/fullicon.png)

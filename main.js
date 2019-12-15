@@ -2,7 +2,7 @@ let extensionId = "agnaejlkbiiggajjmnpmeheigkflbnoo"; //Chrome
 let tabURL = "";
 let games = {};
 (async function() {
-    let response = await fetch("https://gist.githubusercontent.com/soap-less/30e9f0409ba0a99a5df4af6e07987e35/raw/stadiaGames.json");
+    let response = await fetch("https://raw.githubusercontent.com/soap-less/StadiaJSON/master/games.json");
     games = await response.json();
 })();
 
