@@ -1,1 +1,1 @@
-`<img src="/assets/fullicon.png" height=200px>`
+![StadiaRPC](/assets/fullicon.png | width=300)
