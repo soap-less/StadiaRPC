@@ -1,1 +1,1 @@
-![StadiaRPC Logo](/assets/fullicon.png)
+![StadiaRPC Logo](/assets/fullicon.png =250x)
