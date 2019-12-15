@@ -1,1 +1,1 @@
-![StadiaRPC](/assets/fullicon.png | width=300)
+![StadiaRPC](/assets/fullicon.png)
