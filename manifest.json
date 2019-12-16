@@ -1,6 +1,6 @@
 {
     "name": "StadiaRPC",
-    "version": "0.2.1",
+    "version": "0.1.5",
     "description": "Updates Discord rich presence to show what you're playing.",
     "manifest_version": 2,
     "permissions": [
