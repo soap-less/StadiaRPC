@@ -17,34 +17,38 @@ chrome.runtime.onMessage.addListener(function (info, sender, sendResponse) {
     sendResponse(getPresence());
 });
 
-//Set default options
-let stateDisplay = "";  
+//Establish all options
 let largeImgTxt = "";
 let smallImgTxt = "Online";
 let largeImg = "stadialogosquare";
 let smallImg = "online";
-let time = Date.now();
 let detailDisplay = "Playing an Unknown Game";
 let prevDetailDisplay = "Playing an Unknown Game";
+
+let stateDisplay = "";
+let time = Date.now();
 
 //Return presence   
 function getPresence() {
     tabURL = location.href;
-
     //Updates the options
     if (tabURL === "https://stadia.google.com/home") {
         detailDisplay = "Chilling in Home";
         largeImgTxt = "On the Home Page";
+        largeImg = "stadialogosquare";
+        smallImg = "online";
     } else if (tabURL.startsWith("https://stadia.google.com/store")) {
         detailDisplay = "Browsing the Store";
         largeImgTxt = "Looking for Something New";
+        largeImg = "store";
+        smallImg = "online";
 
         //Displays what game is being viewed on the store
         Object.keys(games).forEach(gameName => {
             let game = games[gameName];
             if (game["store"] === tabURL) {
                 largeImgTxt = "Browsing the Store";
-                detailDisplay = "Looking at " + gameName
+                detailDisplay = "Checking out " + gameName
             }
         });
 
@@ -58,6 +62,9 @@ function getPresence() {
                 if (game["hasIcon"]) {
                     largeImg = game["aliases"][0];
                     smallImg = "stadialogosquare";
+                } else {
+                    largeImg = "stadialogosquare";
+                    smallImg = "online"
                 }
             }
         });
@@ -68,6 +75,8 @@ function getPresence() {
     }
     prevDetailDisplay = detailDisplay;
 
+    //Multi-line drifting
+    stateDisplay = ""
     if (detailDisplay.length > 25) {
         for (i = detailDisplay.length - 1; i >= 0; i--) {
             if ((detailDisplay[i] === " " || detailDisplay[i] === ":") && detailDisplay.slice(0, i + 1).length < 25) {
