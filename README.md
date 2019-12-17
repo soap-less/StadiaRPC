@@ -19,8 +19,8 @@ Getting started is really easy! Well not like super easy, but it's easy enough.
 2. Download BOTH the Chrome extension and the Desktop application. They are both required for the plugin to work.
 3. Download the StadiaRPC Chrome extension file from the [Chrome web store](https://chrome.google.com/webstore/detail/stadiarpc/dmhhgpkmilabgjpdbkinimkihdiobljg?hl=en&gl=US).
 
-# Awaiting approval?
-Yeah, my legal disclaimer I made to cover my ass got my plugin flagged by the Chrome store, and now they have to review it(it might not even go through...). If you're really desperate to use it, though, don't worry! While I do recommend you wait, there's a way to use it right now. First, download and extract the master.zip file. Then, go to chrome://extensions in your browser and turn on developer mode. Finally, hit the "Load unpacked" button and select the extracted folder. You're now good to go.
+# That's cool, but I have an idea to make it better...
+Awesome! I love feedback, especially because I don't know what the hell I'm doing. If you want to give me some feedback, join the discord [here](https://discord.gg/zU9HFm7) and post it in #rpc-suggestions. I'll always take a bit of feedback.
 
 # Credits/Rights
 Huge shoutout to @lolamtisch for making the DiscordRPC/Chrome API. This project would be a hell of a lot harder without them. 
