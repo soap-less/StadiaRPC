@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/fullicon.png" width="250">
+  <a href="https://chrome.google.com/webstore/detail/stadiarpc/dmhhgpkmilabgjpdbkinimkihdiobljg?hl=en&gl=US"><img src="assets/fullicon.png" width="250"></a>
 </p>
 <p align="center">
   <strong>Rich Presence integration for Stadia is here!</strong>
@@ -17,7 +17,7 @@ StadiaRPC is an **UNOFFICIAL** Google Chrome extension made for Stadia users whi
 Getting started is really easy! Well not like super easy, but it's easy enough. 
 1. Head over to https://github.com/lolamtisch/Discord-RPC-Extension.
 2. Download BOTH the Chrome extension and the Desktop application. They are both required for the plugin to work.
-3. Download the StadiaRPC Chrome extension file from the Chrome web store(AWAITING APPROVAL).
+3. Download the StadiaRPC Chrome extension file from the [Chrome web store](https://chrome.google.com/webstore/detail/stadiarpc/dmhhgpkmilabgjpdbkinimkihdiobljg?hl=en&gl=US).
 
 # Awaiting approval?
 Yeah, my legal disclaimer I made to cover my ass got my plugin flagged by the Chrome store, and now they have to review it(it might not even go through...). If you're really desperate to use it, though, don't worry! While I do recommend you wait, there's a way to use it right now. First, download and extract the master.zip file. Then, go to chrome://extensions in your browser and turn on developer mode. Finally, hit the "Load unpacked" button and select the extracted folder. You're now good to go.
