@@ -7,7 +7,7 @@
 
 
 # Use the issues page or [join me on Discord](https://discord.gg/zU9HFm7) for suggestions or issues.
-#### If you have any links to games(show up in your browser when you're playing a game, just exit fullscreen), feel free to share them [here](https://github.com/soap-less/stadiajson/issues). They're very important to this project, and I am still missing a lot of them.
+#### If you have any links(show up in your browser when you're playing a game, just exit fullscreen) to games that show as "missing" when you're playing, feel free to share them [here](https://github.com/soap-less/stadiajson/issues). They're very important to this project, and I am still missing a lot of them.
 
 
 # What is this thing?
