@@ -12,5 +12,6 @@ document.addEventListener('DOMContentLoaded', function () {
             document.body.insertBefore(bannerDiv, document.getElementById("header"));
         }
     });
+    document.getElementById("signature").innerHTML = "soapless (" + chrome.runtime.getManifest()["version"] + ")";
 });
 
