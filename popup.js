@@ -1,12 +1,16 @@
 document.addEventListener('DOMContentLoaded', function () {
-    var links = document.getElementsByTagName("a");
-    for (var i = 0; i < links.length; i++) {
-        (function () {
-            var ln = links[i];
-            var location = ln.href;
-            ln.onclick = function () {
-                chrome.tabs.create({active: true, url: location});
-            };
-        })();
-    }
+    //Adds a banner when out of date
+    chrome.browserAction.getBadgeText({}, function(badgeText) {
+        if (badgeText === "!") {
+            let bannerDiv = document.createElement("div");
+            bannerDiv.setAttribute("id", "updateBanner");
+            let bannerText = document.createElement("a");
+            bannerText.innerHTML = "New Update Available";
+            bannerText.setAttribute("href", "https://chrome.google.com/webstore/detail/stadiarpc/dmhhgpkmilabgjpdbkinimkihdiobljg?hl=en&gl=US")
+            bannerText.setAttribute("target", "_newtab");
+            bannerDiv.appendChild(bannerText);
+            document.body.insertBefore(bannerDiv, document.getElementById("header"));
+        }
+    });
 });
+

@@ -1,6 +1,6 @@
-let extensionId = "agnaejlkbiiggajjmnpmeheigkflbnoo"; //Chrome
-let tabURL = "";
+const extensionId = "agnaejlkbiiggajjmnpmeheigkflbnoo"; //Chrome
 let games = {};
+
 (async function() {
     let response = await fetch("https://raw.githubusercontent.com/soap-less/StadiaJSON/master/games.json");
     games = await response.json();
@@ -27,6 +27,8 @@ let prevDetailDisplay = "Playing an Unknown Game";
 
 let stateDisplay = "";
 let time = Date.now();
+
+let tabURL = "";
 
 //Return presence   
 function getPresence() {
