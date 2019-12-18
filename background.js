@@ -27,12 +27,8 @@ chrome.runtime.onStartup.addListener(function() {
             liveVersion[i] = parseInt(liveVersion[i])
         }
 
-        alert(localVersion.toString());
-        alert(liveVersion.toString());
-
         for (i = 0; i < liveVersion.length; i++){
             if (liveVersion[i] > localVersion[i]) {
-                alert("hi")
                 chrome.browserAction.setBadgeText({text: "!"});
                 break;
             } else if (i === liveVersion.length - 1) {
