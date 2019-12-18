@@ -12,21 +12,12 @@ async function getLiveVersion() {
     liveVersion = json["version"];
 };
 
-//Shout out to StackOverflow for letting me know .split exists. Splits the version into a list of 3 numbers and then compares them.
+//Shout out to u/kirbyfan64sos for letting me know about .map(Number)
+let localVersion = chrome.runtime.getManifest()["version"];
 chrome.runtime.onStartup.addListener(function() {
     getLiveVersion().then(() => {
-        let localVersion = chrome.runtime.getManifest()["version"];
-        localVersion = localVersion.split('.');
-        liveVersion = liveVersion.split('.');
-
-        for (i = 0; i < localVersion.length; i++){
-            localVersion[i] = parseInt(localVersion[i])
-        }
-
-        for (i = 0; i < liveVersion.length; i++){
-            liveVersion[i] = parseInt(liveVersion[i])
-        }
-
+        localVersion = localVersion.split('.').map(Number);
+        liveVersion = liveVersion.splt('.').map(Number);
         for (i = 0; i < liveVersion.length; i++){
             if (liveVersion[i] > localVersion[i]) {
                 chrome.browserAction.setBadgeText({text: "!"});
