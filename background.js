@@ -17,7 +17,7 @@ let localVersion = chrome.runtime.getManifest()["version"];
 chrome.runtime.onStartup.addListener(function() {
     getLiveVersion().then(() => {
         localVersion = localVersion.split('.').map(Number);
-        liveVersion = liveVersion.splt('.').map(Number);
+        liveVersion = liveVersion.split('.').map(Number);
         for (i = 0; i < liveVersion.length; i++){
             if (liveVersion[i] > localVersion[i]) {
                 chrome.browserAction.setBadgeText({text: "!"});
