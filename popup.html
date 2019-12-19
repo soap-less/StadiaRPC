@@ -1,29 +1,56 @@
 <html>
     <head>
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="popup.css">
         <script src="popup.js" ></script>
     </head>
     <body>
-        <div id="header">
-            <img class = "center" height=100 src = "/assets/fullicon.png">
-        </div>
-        <div id = "issues">
-            <p id="issuesText">Support</p> 
-            <div id="issuesImgs">
-                <a href="https://discord.gg/zU9HFm7" target='_newtab'>
-                    <img id="discordLogo" height=32px class = "center" src="/assets/Discord-Logo-White.png">
-                </a>
-                <a target='_newtab' href="https://github.com/soap-less/StadiaRPC/issues/new">
-                    <img id="githubIssues" class = "center" width=26px src="/assets/GitHub-Mark-Light-32px.png">
-                </a>
+        <img id="settings" height=24px class="imgLink right" src="assets/settings.png">
+        
+        <div id="settingsPage" class="transition" style="height: 0">
+            <div id="homeSettings">
+                <p>
+                    Home
+                    <img id="homeToggle" height=24px class="imgLink" src="assets/rpcOff.png">
+                </p>
+            </div>
+            
+            <div id="storeSettings">
+                <p>
+                    Store
+                    <img id="storeToggle" height=24px class="imgLink" src="assets/rpcOff.png">
+                </p>
+            </div>
+
+            <div id="gameSettings">
+                <p>
+                    In Game
+                    <img id="gameToggle" height=24px class="imgLink" src="assets/rpcOff.png">
+                </p>
             </div>
         </div>
-        <div id="footer">
-            <p id="signature">soap-less</p>
-            <a target='_newtab' href="https://github.com/soap-less/StadiaRPC/">
-                <img id="githubFooter" height=18px src="/assets/GitHub-Mark-Light-32px.png">
-            </a>
+
+        <div id="mainPage" class="transition">
+            <div id="header">
+                <img class="center" height=100 src="/assets/fullicon.png">
+            </div>
+            <div id = "issues">
+                <p id="issuesText">Support</p> 
+                <div id="issuesImgs">
+                    <a href="https://discord.gg/zU9HFm7" target='_newtab'>
+                        <img id="discordLogo" height=32px class="center imgLink" src="/assets/Discord-Logo-White.png">
+                    </a>
+                    <a target='_newtab' href="https://github.com/soap-less/StadiaRPC/issues/new">
+                        <img id="githubIssues" class="center imgLink" width=26px src="/assets/GitHub-Mark-Light-32px.png">
+                    </a>
+                </div>
+            </div>
+            <div id="footer">
+                <p id="signature">soap-less</p>
+                <a target='_newtab' href="https://github.com/soap-less/StadiaRPC/">
+                    <img id="githubFooter" class="imgLink" height=18px src="/assets/GitHub-Mark-Light-32px.png">
+                </a>
+            </div>
         </div>
     </body>
 </html>

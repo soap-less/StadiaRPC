@@ -1,3 +1,4 @@
+/* GENERAL / CLASSES */
 body {
     background-color: #202124;
     width: 225px;
@@ -10,20 +11,48 @@ body {
     margin-right: auto;
 }
 
-#header {
+.left {
+    display:block;
+    margin-left: 0;
+    margin-right: auto;
+}
+
+.right {
     display:block;
     margin-left: auto;
-    margin-right: auto;
-    align-self: center;
+    margin-right: 0;
+}
+
+p {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 18pt;
+    color: white;
+}
+
+.imgLink:hover { 
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.imgLink:active {
+    opacity: 0.3;
+}
+
+.transition {
+    overflow: hidden;
+}
+
+/* HEADER (obviously) */
+#header {
+    float: none;
     margin-top: 20px;
     margin-bottom: 50px;
 }
 
+/* ISSUES/MIDDLE PART */
 #issuesText {
     display:block;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 18pt;
-    color: white;
     margin: 20px;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -31,7 +60,6 @@ body {
 }
 
 #issuesImgs {
-    
     display: flex;
     justify-content: center;
 }
@@ -44,20 +72,11 @@ body {
     margin-top: 2px;
 }
 
-#githubIssues:hover { 
-    opacity: 0.7;
-}
 
-#discordLogo:hover { 
-    opacity: 0.7;
-}
-
-/*I know absolute positioning sucks but I'm too lazy to deal with inline blocks right now */
+/* FOOTER */
 #signature {
     color: #404654;
-    font-family: 'Open Sans', sans-serif;
     font-size: 10px;
-    vertical-align: bottom;
     position: absolute;
     right: 5px;
     bottom: -5px;
@@ -67,13 +86,9 @@ body {
     position: absolute;
     left: 5px;
     bottom: 5px;
-    vertical-align: middle;
 }
 
-#githubFooter:hover { 
-    opacity: 0.7;
-}
-
+/* UPDATE BANNER(obviously) */
 #updateBanner a {
     color: inherit;
     text-decoration: none;
@@ -87,4 +102,20 @@ body {
     color: white;
     background: rgb(254,75,30);
     background: linear-gradient(90deg, rgba(254,75,30,1) 0%, rgba(172,13,87,1) 100%);
+}
+
+/* SETTINGS PAGE */
+#settingsPage > div > p {
+    font-weight: 400;
+    font-size: 12pt;
+    background-color: #393A3C;
+    border-radius: 10px;
+    padding: 10px 10px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#settingsPage > div {
+    padding: 8px 5px;
 }
