@@ -1,10 +1,17 @@
-/* GENERAL / CLASSES */
+/* BODY */
 body {
     background-color: #202124;
     width: 225px;
     height: 325px;
 }
 
+#container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* JUSTIFY CONTENT */
 .center {
     display:block;
     margin-left: auto;
@@ -23,6 +30,7 @@ body {
     margin-right: 0;
 }
 
+/* GENERAL */
 p {
     font-family: 'Open Sans', sans-serif;
     font-weight: 700;
@@ -39,8 +47,24 @@ p {
     opacity: 0.3;
 }
 
-.transition {
-    overflow: hidden;
+/* Transition */
+.moveLeft {
+    transform: translateX(-240px);
+    transition-timing-function: cubic-bezier(0, 0, 0.53, 0.99);
+    transition: transform 0.25s;
+}
+
+.moveRight {
+    transform: translateX(0px);
+    transition-timing-function: cubic-bezier(0, 0, 0.53, 0.99);
+    transition: transform 0.25s;
+}
+
+
+/* */
+#mainPage {
+    float: left;
+    width: 225px;
 }
 
 /* HEADER (obviously) */
@@ -50,7 +74,6 @@ p {
     margin-bottom: 50px;
 }
 
-/* ISSUES/MIDDLE PART */
 #issuesText {
     display:block;
     margin: 20px;
@@ -72,7 +95,6 @@ p {
     margin-top: 2px;
 }
 
-
 /* FOOTER */
 #signature {
     color: #404654;
@@ -86,6 +108,28 @@ p {
     position: absolute;
     left: 5px;
     bottom: 5px;
+}
+
+
+/* SETTINGS PAGE */
+#settingsPage {
+    margin-left: 240px;
+    width: 225px;
+}
+
+#settingsPage > div > p {
+    font-weight: 400;
+    font-size: 12pt;
+    background-color: #393A3C;
+    border-radius: 10px;
+    padding: 10px 10px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#settingsPage > div {
+    padding: 8px 5px;
 }
 
 /* UPDATE BANNER(obviously) */
@@ -102,20 +146,4 @@ p {
     color: white;
     background: rgb(254,75,30);
     background: linear-gradient(90deg, rgba(254,75,30,1) 0%, rgba(172,13,87,1) 100%);
-}
-
-/* SETTINGS PAGE */
-#settingsPage > div > p {
-    font-weight: 400;
-    font-size: 12pt;
-    background-color: #393A3C;
-    border-radius: 10px;
-    padding: 10px 10px 12px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-#settingsPage > div {
-    padding: 8px 5px;
 }
