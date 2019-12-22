@@ -22,28 +22,49 @@ let largeImgTxt = "";
 let smallImgTxt = "Online";
 let largeImg = "stadialogosquare";
 let smallImg = "online";
-let detailDisplay = "Playing an Unknown Game";
-let prevDetailDisplay = "Playing an Unknown Game";
+let detailDisplay = "Using Stadia";
+let prevDetailDisplay = "Using Stadia";
 
 let stateDisplay = "";
 let time = Date.now();
 
 let tabURL = "";
 
+//Establish settings
+let homeOn = true;
+let storeOn = true;
+let gameOn = true;
+
 //Return presence   
 function getPresence() {
     tabURL = location.href;
+
+    chrome.storage.local.get({rpcHomeOn: true, rpcStoreOn: true, rpcGameOn: true}, function(items) {
+        homeOn = items.rpcHomeOn;
+        storeOn = items.rpcStoreOn;
+        gameOn = items.rpcGameOn;
+    });
+
     //Updates the options
     if (tabURL === "https://stadia.google.com/home") {
         detailDisplay = "Chilling in Home";
         largeImgTxt = "On the Home Page";
         largeImg = "stadialogosquare";
         smallImg = "online";
+
+        if (!homeOn) {
+            return {action: "disconnect"};
+        }
+
     } else if (tabURL.startsWith("https://stadia.google.com/store")) {
         detailDisplay = "Browsing the Store";
         largeImgTxt = "Looking for Something New";
         largeImg = "store";
         smallImg = "online";
+
+        if (!storeOn) {
+            return {action: "disconnect"};
+        }
 
         //Displays what game is being viewed on the store
         Object.keys(games).forEach(gameName => {
@@ -70,6 +91,10 @@ function getPresence() {
                 }
             }
         });
+
+        if (!gameOn) {
+            return {action: "disconnect"};
+        }
     }    
     //Check to see if presence has changed, resets time if so
     if (prevDetailDisplay !== detailDisplay) {
