@@ -60,7 +60,6 @@ p {
     transition: transform 0.25s;
 }
 
-
 /* */
 #mainPage {
     float: left;
@@ -96,18 +95,22 @@ p {
 }
 
 /* FOOTER */
+#footer {
+    margin-top: 32px;
+    align-items: center;
+}
+
 #signature {
     color: #404654;
     font-size: 10px;
-    position: absolute;
-    right: 5px;
-    bottom: -5px;
+    display: flex;
+    float: right;
 }
 
 #githubFooter {
-    position: absolute;
-    left: 5px;
-    bottom: 5px;
+    margin-top: 5px;
+    display: flex;
+    float: left;
 }
 
 
@@ -128,22 +131,12 @@ p {
     align-items: center;
 }
 
-#settingsPage > div {
-    padding: 8px 5px;
+#settingsPage > div:not(#homeSettings) {
+    display: block;
+    box-sizing: border-box; 
+    margin-top: 25px;
 }
 
-/* UPDATE BANNER(obviously) */
-#updateBanner a {
-    color: inherit;
-    text-decoration: none;
-}
-
-#updateBanner {
-    margin: -8px -8px 0px;
-    font-family: 'Open Sans', sans-serif;
-    text-decoration: none;
-    text-align: center;
-    color: white;
-    background: rgb(254,75,30);
-    background: linear-gradient(90deg, rgba(254,75,30,1) 0%, rgba(172,13,87,1) 100%);
+#homeSettings {
+    margin-top: 15px;
 }

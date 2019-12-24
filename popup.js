@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-
+    
     //Set version #
     document.getElementById("signature").innerHTML = "soapless (" + chrome.runtime.getManifest()["version"] + ")";
 
@@ -18,10 +18,23 @@ document.addEventListener('DOMContentLoaded', function () {
     let homeToggle = document.getElementById("homeToggle");
     let storeToggle = document.getElementById("storeToggle");
     let gameToggle = document.getElementById("gameToggle");
+    let ccToggle = document.getElementById("ccToggle");
 
-    chrome.storage.local.get("rpcHomeOn", function(items) {
+    chrome.storage.local.get({"rpcHomeOn": true, "rpcStoreOn": true, "rpcGameOn": true, "rpcCCOn": false}, function(items) {
         if (items.rpcHomeOn) {
             homeToggle.setAttribute("src", "/assets/icon128.png");
+        }
+
+        if (items.rpcStoreOn) {
+            storeToggle.setAttribute("src", "/assets/icon128.png");
+        }
+
+        if (items.rpcGameOn) {
+            gameToggle.setAttribute("src", "/assets/icon128.png");
+        }
+
+        if (items.rpcCCOn) {
+            ccToggle.setAttribute("src", "/assets/icon128.png");
         }
     });
 
@@ -35,12 +48,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    chrome.storage.local.get({"rpcStoreOn": true}, function(items) {
-        if (items.rpcStoreOn) {
-            storeToggle.setAttribute("src", "/assets/icon128.png");
-        }
-    });
-
     storeToggle.addEventListener("click", function() {
         if (storeToggle.getAttribute("src") === "/assets/icon128.png") {
             chrome.storage.local.set({rpcStoreOn: false});
@@ -51,12 +58,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    chrome.storage.local.get({"rpcGameOn": true}, function(items) {
-        if (items.rpcGameOn) {
-            gameToggle.setAttribute("src", "/assets/icon128.png");
-        }
-    });
-
     gameToggle.addEventListener("click", function() {
         if (gameToggle.getAttribute("src") === "/assets/icon128.png") {
             chrome.storage.local.set({rpcGameOn: false});
@@ -64,6 +65,22 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             chrome.storage.local.set({rpcGameOn: true});
             gameToggle.setAttribute("src", "/assets/icon128.png");
+        }
+    });
+
+    ccToggle.addEventListener("click", function() {
+        chrome.storage.local.get({firstTimeCC: true}, function(items) {
+            if (items.firstTimeCC) {
+                chrome.tabs.create({url: "https://github.com/soap-less/StadiaRPC/wiki/Getting-Started-with-Chromecast-Pixel-RPC-(WIP)"})
+                chrome.storage.local.set({firstTimeCC: false});
+            }
+        });
+        if (ccToggle.getAttribute("src") === "/assets/icon128.png") {
+            chrome.storage.local.set({rpcCCOn: false});
+            ccToggle.setAttribute("src", "/assets/rpcOff.png");
+        } else {
+            chrome.storage.local.set({rpcCCOn: true});
+            ccToggle.setAttribute("src", "/assets/icon128.png");
         }
     });
 });
