@@ -51,15 +51,14 @@ function getPresence() {
 
     //Updates the options
     if (tabURL === "https://stadia.google.com/home") {
-        if (homeOn) {
-            detailDisplay = "Chilling in Home";
-            largeImgTxt = "On the Home Page";
-            largeImg = "stadialogosquare";
-            smallImg = "online";
-        }
+        detailDisplay = "Chilling in Home";
+        largeImgTxt = "On the Home Page";
+        largeImg = "stadialogosquare";
+        smallImg = "online";
         
         if (ccOn) {
             let currentlyPlaying = document.getElementsByClassName("HDKZKb  LiQ6Hb");
+            console.log(currentlyPlaying);
             
             for (let i = 0; i < currentlyPlaying.length; i++) {
                 if (!currentlyPlaying[i].getAttribute("class").includes("FW3qke")) {
@@ -93,9 +92,15 @@ function getPresence() {
                         }
                     });
                 });
+            } else if (!homeOn) {
+                return {action: "disconnect"};
             }
         }
         
+        if (!homeOn && !ccOn) {
+            return {action: "disconnect"};
+        }
+
     } else if (tabURL.startsWith("https://stadia.google.com/store")) {
         detailDisplay = "Browsing the Store";
         largeImgTxt = "Looking for Something New";
