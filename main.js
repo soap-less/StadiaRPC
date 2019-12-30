@@ -1,20 +1,29 @@
-const extensionId = "agnaejlkbiiggajjmnpmeheigkflbnoo"; //Chrome
+// Gets a list of Stadia games and their information
 let games = {};
-
 (async function() {
     let response = await fetch("https://raw.githubusercontent.com/soap-less/StadiaJSON/master/games.json");
     games = await response.json();
 })();
 
-//Register Presence
-chrome.runtime.sendMessage(extensionId, { mode: 'active' }, function (response) {
+// Register Presence
+chrome.runtime.sendMessage("agnaejlkbiiggajjmnpmeheigkflbnoo", {mode: 'active'}, function (response) {
     console.log('Presence registred', response)
 });
 
-//Wait for presence Requests
+// Wait for presence requests
 chrome.runtime.onMessage.addListener(function (info, sender, sendResponse) {
-    console.log('Presence requested', info);
-    sendResponse(getPresence());
+    if (info.action === "sendPartyToken") {
+        alert("yo");
+    } else if (info.action === "joinRequest") {
+        if (confirm(info.user.username+'#'+info.user.discriminator+' wants to join you')) {
+            sendResponse('YES');
+        } else {
+            sendResponse('NO');
+        }
+    } else {
+        console.log('Presence requested', info);
+        sendResponse(getPresence());
+    }
 });
 
 //Establish all options
@@ -159,6 +168,44 @@ function getPresence() {
         }
     }
 
+    let presenceObj = {
+        clientId: '648430151390199818',
+        presence: {
+            details: detailDisplay,
+            state: stateDisplay,
+            startTimestamp: time,
+            instance: true,
+            largeImageKey: largeImg,
+            smallImageKey: smallImg,
+            largeImageText: largeImgTxt,
+            smallImageText: smallImgTxt
+        }
+    }
+
+    let partyToken = ""
+    chrome.storage.local.get({partyToken: ""}, function(info) {
+        partyToken = info.partyToken;
+    });
+
+    if (partyToken.length > 0) {
+        return {
+            clientId: '648430151390199818',
+            presence: {
+                details: detailDisplay,
+                state: stateDisplay,
+                startTimestamp: time,
+                instance: true,
+                largeImageKey: largeImg,
+                smallImageKey: smallImg,
+                largeImageText: largeImgTxt,
+                smallImageText: smallImgTxt,
+                partyId: "party:" + partyToken,
+                partySize: document.getElementsByClassName("z9e9Hc")[0],
+                partyMax: 6
+            }
+        }; 
+    }
+
     return {
         clientId: '648430151390199818',
         presence: {
@@ -171,5 +218,5 @@ function getPresence() {
             largeImageText: largeImgTxt,
             smallImageText: smallImgTxt
         }
-    };  
+    }; 
 }

@@ -13,8 +13,8 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById("backArrow").addEventListener("click", function() {
         mainPage.setAttribute("class", "moveRight");
         settingsPage.setAttribute("class", "moveRight");
-    }); 
-    
+    });
+
     let homeToggle = document.getElementById("homeToggle");
     let storeToggle = document.getElementById("storeToggle");
     let gameToggle = document.getElementById("gameToggle");
@@ -81,6 +81,13 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             chrome.storage.local.set({rpcCCOn: true});
             ccToggle.setAttribute("src", "/assets/icon128.png");
+        }
+    });
+
+    partyInput = document.getElementById("partyLink");
+    partyInput.addEventListener("change", function() {
+        if (partyInput.value.slice(0, 45) === "https://stadia.google.com/links?party_invite=") {
+            chrome.storage.local.set({partyToken: partyInput.value.slice(45)});
         }
     });
 });

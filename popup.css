@@ -60,7 +60,7 @@ p {
     transition: transform 0.25s;
 }
 
-/* */
+/* Settings Button */
 #mainPage {
     float: left;
     width: 225px;
@@ -70,9 +70,10 @@ p {
 #header {
     float: none;
     margin-top: 20px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
+/* For support links and stuff */
 #issuesText {
     display:block;
     margin: 20px;
@@ -134,9 +135,5 @@ p {
 #settingsPage > div:not(#homeSettings) {
     display: block;
     box-sizing: border-box; 
-    margin-top: 25px;
-}
-
-#homeSettings {
-    margin-top: 15px;
+    margin-top: -5px;
 }
