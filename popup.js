@@ -87,7 +87,15 @@ document.addEventListener('DOMContentLoaded', function () {
     partyInput = document.getElementById("partyLink");
     partyInput.addEventListener("change", function() {
         if (partyInput.value.slice(0, 45) === "https://stadia.google.com/links?party_invite=") {
-            chrome.storage.local.set({partyToken: partyInput.value.slice(45)});
+            chrome.tabs.query({url: "https://stadia.google.com/*"}, function(results) {
+                if (results.length === 0) {
+                    chrome.tabs.create({url: 'https://stadia.google.com/'});
+                }
+
+                results.forEach(tab => {
+                    chrome.tabs.sendMessage(tab.id, {action: "passToken", partyToken: partyInput.value.slice(45)});
+                });
+            });
         }
     });
 });
