@@ -67,8 +67,8 @@ function getPresence() {
             smallImg = "online";
             
             if (ccOn) {
+                
                 let currentlyPlaying = document.getElementsByClassName("HDKZKb  LiQ6Hb");
-                console.log(currentlyPlaying);
                 
                 for (let i = 0; i < currentlyPlaying.length; i++) {
                     if (!currentlyPlaying[i].getAttribute("class").includes("FW3qke")) {
