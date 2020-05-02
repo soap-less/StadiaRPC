@@ -1,0 +1,142 @@
+/* BODY */
+body {
+    background-color: #202124;
+    width: 225px;
+    height: 325px;
+}
+
+#container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* JUSTIFY CONTENT */
+.center {
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.left {
+    display:block;
+    margin-left: 0;
+    margin-right: auto;
+}
+
+.right {
+    display:block;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+/* GENERAL */
+p {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 18pt;
+    color: white;
+}
+
+.imgLink:hover { 
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.imgLink:active {
+    opacity: 0.3;
+}
+
+/* Transition */
+.moveLeft {
+    transform: translateX(-240px);
+    transition-timing-function: cubic-bezier(0, 0, 0.53, 0.99);
+    transition: transform 0.25s;
+}
+
+.moveRight {
+    transform: translateX(0px);
+    transition-timing-function: cubic-bezier(0, 0, 0.53, 0.99);
+    transition: transform 0.25s;
+}
+
+/* */
+#mainPage {
+    float: left;
+    width: 225px;
+}
+
+/* HEADER (obviously) */
+#header {
+    float: none;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+#issuesText {
+    display:block;
+    margin: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#issuesImgs {
+    display: flex;
+    justify-content: center;
+}
+
+#issues a {
+    margin: 0px 12px;
+}
+
+#githubIssues {
+    margin-top: 2px;
+}
+
+/* FOOTER */
+#footer {
+    margin-top: 32px;
+    align-items: center;
+}
+
+#signature {
+    color: #404654;
+    font-size: 10px;
+    display: flex;
+    float: right;
+}
+
+#githubFooter {
+    margin-top: 5px;
+    display: flex;
+    float: left;
+}
+
+
+/* SETTINGS PAGE */
+#settingsPage {
+    margin-left: 240px;
+    width: 225px;
+}
+
+#settingsPage > div > p {
+    font-weight: 400;
+    font-size: 12pt;
+    background-color: #393A3C;
+    border-radius: 10px;
+    padding: 10px 10px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#settingsPage > div:not(#homeSettings) {
+    display: block;
+    box-sizing: border-box; 
+    margin-top: 25px;
+}
+
+#homeSettings {
+    margin-top: 15px;
+}
