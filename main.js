@@ -1,5 +1,7 @@
 const extensionId = "agnaejlkbiiggajjmnpmeheigkflbnoo"; //Chrome
 let games = {};
+let gamesDb = {};
+let rpcDb = {};
 
 //Establish settings
 let homeOn = true;
@@ -8,7 +10,13 @@ let gameOn = true;
 let ccOn = false;
 
 (async function() {
-    // Fetch a JSON with all Stadia games and their info
+    let gamesDbResponse = await fetch("https://raw.githubusercontent.com/nilicule/StadiaGameDB/master/data/gamedb.json");
+    gamesDb = await gamesDbResponse.json();
+    gamesDb = gamesDb["data"];
+
+    let rpcDbResponse = await fetch("https://raw.githubusercontent.com/soap-less/StadiaJSON/master/stadiaRpc.json");
+    rpcDb = await rpcDbResponse.json();
+
     let response = await fetch("https://raw.githubusercontent.com/soap-less/StadiaJSON/master/games.json");
     games = await response.json();
 
@@ -44,25 +52,28 @@ chrome.runtime.onMessage.addListener(function (info, sender, sendResponse) {
 
 //Establish all options
 let largeImgTxt = "";
-let smallImgTxt = "Online";
+let smallImgTxt = "Stadia (Chrome)";
 let largeImg = "stadialogosquare";
-let smallImg = "online";
+let smallImg = "chrome";
 let detailDisplay = "Using Stadia";
-let prevDetailDisplay = "Using Stadia";
+let clientId = "648430151390199818"; // Default Application ID, sets game as "Stadia"
 
 let stateDisplay = "";
 let time = Date.now();
 
+let prevUrl = location.href;
+
 function generatePresence() {
         try {
-            let tabURL = location.href;
-            
+            const tabURL = location.href;
+            clientId = "648430151390199818";
+
             if (tabURL.includes("home")) {
                 console.log(tabURL)
-                detailDisplay = "Chilling in Home";
-                largeImgTxt = "On the Home Page";
+                detailDisplay = "Home Page";
+                largeImgTxt = "On Stadia Home";
                 largeImg = "stadialogosquare";
-                smallImg = "online";
+                smallImg = "chrome";
                 
                 if (ccOn) {
 
@@ -109,60 +120,83 @@ function generatePresence() {
                         return {action: "disconnect"};
                     }
                 }
-                
+
                 if (!homeOn && !ccOn) {
                     return {action: "disconnect"};
                 }
-
+                
             } else if (tabURL.includes("store")) {
                 detailDisplay = "Browsing the Store";
                 largeImgTxt = "Looking for Something New";
-                largeImg = "store";
-                smallImg = "online";
+                largeImg = "stadialogosquare";
+                smallImg = "chrome";
 
                 if (!storeOn) {
                     return {action: "disconnect"};
                 }
 
-                // Displays what game is being viewed on the store
-                // Loop through every game from the JSON and compare their SKU/GameID to the URL.
-                Object.keys(games).forEach(gameName => {
-                    let game = games[gameName];
-                    let splitUrl = tabURL.split("/");
-                    if (splitUrl[splitUrl.length - 1] === game["sku"] && splitUrl[splitUrl.length - 3] === game["gameId"]) {
+                const splitUrl = tabURL.split("/");
+                const currentlyViewingSku = splitUrl[splitUrl.length - 1]
+                const currentlyViewingId = splitUrl[splitUrl.length - 3]
+
+                gamesDb.forEach(function(dbGame) {
+                    let dbStoreLink = dbGame[0].split("'")[1]
+                    let dbGameId = dbStoreLink.split("/")[5] // Grabs the GameID from the DB's store link
+                    let dbGameSku = dbStoreLink.split("/")[7] // Grabs the GameID from the DB's store link
+                    
+                    if (currentlyViewingId === dbGameId && currentlyViewingSku === dbGameSku) {
+
                         largeImgTxt = "Browsing the Store";
-                        detailDisplay = "Checking out " + gameName
+                        detailDisplay = "Checking out " + dbGame[1];
+
                     }
                 });
             
             } else if (tabURL.includes("player")) {
-                Object.keys(games).forEach(gameName => {
-                    let game = games[gameName];
-                    let splitUrl = tabURL.split("/");
-                    if (game["gameId"] === splitUrl[splitUrl.length - 1]) {
-                        detailDisplay = "Playing " + gameName;
-                        largeImgTxt = gameName;
-                        smallImgTxt = "On Stadia through Chrome"
-                        if (game["hasIcon"]) {
-                            largeImg = game["aliases"][0];
-                            smallImg = "chrome";
-                        } else {
-                            largeImg = "stadialogosquare";
-                            smallImg = "chrome"
-                        }
-                    }
-                });
 
                 if (!gameOn) {
                     return {action: "disconnect"};
                 }
+
+                // Extracts the id from the game currently being played
+                let currentlyPlayingId = tabURL.split("/");
+                currentlyPlayingId = currentlyPlayingId[currentlyPlayingId.length - 1]
+
+                //For every game in the DB
+                gamesDb.forEach(function(dbGame) {
+                    let dbGameId = dbGame[0].split("'")[1] // Grabs just the store link
+                    dbGameId = dbGameId.split("/")[5] // Grabs the GameID from the DB's store link
+
+                    if (currentlyPlayingId === dbGameId) {
+                        let dbGameName = dbGame[1];
+
+                        detailDisplay = "Playing " + dbGameName;
+                        largeImgTxt = dbGameName;
+                        smallImgTxt = "On Stadia (Chrome)";
+                        smallImg = "chrome";
+
+                        // Checking for icon and setting it if it's there
+                        if (rpcDb["gamesWithIcon"].includes(dbGameName)) {
+                            largeImg = dbGameName.toLowerCase().replace(/[^a-z0-9]/g, "");
+                        
+                        // Checking for Custom Application ID
+                        } else if (Object.keys(rpcDb["gamesWithCustomApp"]).includes(dbGameName)) {
+
+                            largeImg = dbGameName.toLowerCase().replace(/[^a-z0-9]/g, "");
+                            clientId = rpcDb["gamesWithCustomApp"][dbGameName];
+                            detailDisplay = "Playing on Stadia";
+
+                        }
+                    }
+                });
             }
 
             //Check to see if presence has changed, resets time if so
-            if (prevDetailDisplay !== detailDisplay) {
+            if (prevUrl !== tabURL) {
                 time = Date.now();
             }
-            prevDetailDisplay = detailDisplay;
+
+            prevUrl = tabURL;
 
             //Multi-line drifting
             stateDisplay = ""
@@ -189,9 +223,9 @@ function generatePresence() {
                     smallImageText: smallImgTxt
                 }
             });
-
+            
             return {
-                clientId: '648430151390199818',
+                clientId: clientId,
                 presence: {
                     details: detailDisplay,
                     state: stateDisplay,
@@ -199,7 +233,7 @@ function generatePresence() {
                     instance: true,
                     largeImageKey: largeImg,
                     smallImageKey: smallImg,
-                    largeImageText: largeImgTxt,    
+                    largeImageText: largeImgTxt,
                     smallImageText: smallImgTxt
                 }
             };

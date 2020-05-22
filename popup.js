@@ -85,4 +85,8 @@ document.addEventListener('DOMContentLoaded', function () {
             ccToggle.setAttribute("src", "/assets/icon128.png");
         }
     });
+
+    document.getElementById("wiki").addEventListener("click", function(){
+        chrome.tabs.create({url: "https://github.com/soap-less/StadiaRPC/wiki/Getting-Started-with-Chromecast-Pixel-RPC-(WIP)"})
+    });
 });

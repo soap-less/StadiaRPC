@@ -38,6 +38,15 @@ p {
     color: white;
 }
 
+a {
+    color: lightslategray;
+    text-decoration: none;
+}
+
+a:hover {
+    opacity: 50%;
+}
+
 .imgLink:hover { 
     opacity: 0.7;
     cursor: pointer;
