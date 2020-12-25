@@ -2,7 +2,7 @@
 body {
     background-color: #202124;
     width: 225px;
-    height: 325px;
+    height: 375px;
 }
 
 #container {
@@ -47,7 +47,7 @@ a:hover {
     opacity: 50%;
 }
 
-.imgLink:hover { 
+.imgLink:hover {
     opacity: 0.7;
     cursor: pointer;
 }
@@ -73,6 +73,8 @@ a:hover {
 #mainPage {
     float: left;
     width: 225px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 /* HEADER (obviously) */
@@ -105,7 +107,7 @@ a:hover {
 
 /* FOOTER */
 #footer {
-    margin-top: 32px;
+    margin-top: 75px;
     align-items: center;
 }
 
@@ -127,6 +129,8 @@ a:hover {
 #settingsPage {
     margin-left: 240px;
     width: 225px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 #settingsPage > div > p {
@@ -142,7 +146,7 @@ a:hover {
 
 #settingsPage > div:not(#homeSettings) {
     display: block;
-    box-sizing: border-box; 
+    box-sizing: border-box;
     margin-top: 25px;
 }
 
