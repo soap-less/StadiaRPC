@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', function () {
-    
+
     //Set version #
     document.getElementById("signature").innerHTML = "soapless (" + chrome.runtime.getManifest()["version"] + ")";
 
     let mainPage = document.getElementById("mainPage");
     let settingsPage = document.getElementById("settingsPage");
     document.getElementById("settings").addEventListener("click", function() {
-        
+
         mainPage.setAttribute("class", "moveLeft");
         settingsPage.setAttribute("class", "moveLeft");
 
@@ -15,14 +15,15 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById("backArrow").addEventListener("click", function() {
         mainPage.setAttribute("class", "moveRight");
         settingsPage.setAttribute("class", "moveRight");
-    }); 
-    
+    });
+
     let homeToggle = document.getElementById("homeToggle");
     let storeToggle = document.getElementById("storeToggle");
     let gameToggle = document.getElementById("gameToggle");
     let ccToggle = document.getElementById("ccToggle");
+    let captureToggle = document.getElementById("captureToggle");
 
-    chrome.storage.local.get({"rpcHomeOn": true, "rpcStoreOn": true, "rpcGameOn": true, "rpcCCOn": false}, function(items) {
+    chrome.storage.local.get({"rpcHomeOn": true, "rpcCaptureOn": true, "rpcStoreOn": true, "rpcGameOn": true, "rpcCCOn": false}, function(items) {
         if (items.rpcHomeOn) {
             homeToggle.setAttribute("src", "/assets/icon128.png");
         }
@@ -38,6 +39,10 @@ document.addEventListener('DOMContentLoaded', function () {
         if (items.rpcCCOn) {
             ccToggle.setAttribute("src", "/assets/icon128.png");
         }
+
+        if (items.rpcCaptureOn) {
+            captureToggle.setAttribute("src", "/assets/icon128.png");
+        }
     });
 
     homeToggle.addEventListener("click", function() {
@@ -47,6 +52,16 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             chrome.storage.local.set({rpcHomeOn: true});
             homeToggle.setAttribute("src", "/assets/icon128.png");
+        }
+    });
+
+    captureToggle.addEventListener("click", function() {
+        if (captureToggle.getAttribute("src") === "/assets/icon128.png") {
+            chrome.storage.local.set({rpcCaptureOn: false});
+            captureToggle.setAttribute("src", "/assets/rpcOff.png");
+        } else {
+            chrome.storage.local.set({rpcCaptureOn: true});
+            captureToggle.setAttribute("src", "/assets/icon128.png");
         }
     });
 
