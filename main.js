@@ -221,6 +221,7 @@ function generatePresence() {
 
                 // Gets the users current status
                 let currentlyPlaying = document.getElementsByClassName("HDKZKb  LiQ6Hb");
+                let controllerMenu = document.getElementsByClassName("hpog5e");
 
                 // Disconnects StadiaRPC if the page isn't loaded
                 if (currentlyPlaying === undefined) {
@@ -234,10 +235,14 @@ function generatePresence() {
                     }
                 }
 
-                if (currentlyPlaying.slice(0, 7) === "Playing") {
-                    detailDisplay = currentlyPlaying;
-                    largeImgTxt = currentlyPlaying.slice(8);
-                    smallImg = "chrome";
+                // Ensure controller connect dialog is not open
+                if (controllerMenu.length === 0)
+                {
+                  if (currentlyPlaying.slice(0, 7) === "Playing") {
+                      detailDisplay = currentlyPlaying;
+                      largeImgTxt = currentlyPlaying.slice(8);
+                      smallImg = "chrome";
+                  }
                 }
 
                 // Extracts the id from the game currently being played
